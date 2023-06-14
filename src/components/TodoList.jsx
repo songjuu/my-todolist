@@ -1,6 +1,5 @@
 import React from "react";
 import AddList from "./AddList";
-import ViewList from "./ViewList";
 import "../css/todoList.css";
 
 function TodoList() {
