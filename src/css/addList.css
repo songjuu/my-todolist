@@ -1,39 +1,36 @@
 .form-bg {
-  width: auto;
-  height: 100px;
   background-color: #fac1c1;
   border-radius: 10px;
-}
-
-.form-bg .form-content {
-  text-align: left;
-  padding-top: 30px;
+  align-items: center;
+  display: flex;
+  padding: 30px;
 }
 
 .form-content label {
-  padding-left: 20px;
   font-weight: 700;
   color: #323232;
+  margin-left: 10px;
 }
 
 .form-content .form-title {
   width: 280px;
   height: 40px;
-  margin-left: 10px;
   border: 0;
   border-radius: 15px;
+  padding: 0 12px;
+  margin-left: 10px;
 }
 
 .form-content .form-text {
   width: 450px;
   height: 40px;
-  margin-left: 10px;
   border: 0;
   border-radius: 15px;
+  padding: 0 12px;
+  margin-left: 10px;
 }
 
-.form-content button {
-  margin-left: 200px;
+.form-bg button {
   border-radius: 15px;
   border: none;
   background-color: #fff0f0;
@@ -42,9 +39,10 @@
   font-size: 16px;
   padding: 10px 20px;
   cursor: pointer;
+  margin-left: 80px;
 }
 
-.form-content button:hover {
+.form-bg button:hover {
   background-color: #ff6e6e;
   color: white;
 }

@@ -1,3 +1,10 @@
+.layout {
+  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 800px;
+  height: auto;
+}
+
 .title {
   padding-top: 20px;
   padding-bottom: 20px;

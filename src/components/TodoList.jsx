@@ -5,7 +5,7 @@ import "../css/todoList.css";
 
 function TodoList() {
   return (
-    <div>
+    <div className="layout">
       <header className="title">My TodoList✍</header>
       <AddList />
     </div>
