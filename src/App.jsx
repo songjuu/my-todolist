@@ -1,8 +1,9 @@
 import React from "react";
 import "./css/App.css";
+import TodoList from "./components/TodoList";
 
 function App() {
-  return <div>안녕하세요오오</div>;
+  return <TodoList />;
 }
 
 export default App;
