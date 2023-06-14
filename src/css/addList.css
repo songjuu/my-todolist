@@ -1,0 +1,50 @@
+.form-bg {
+  width: auto;
+  height: 100px;
+  background-color: #fac1c1;
+  border-radius: 10px;
+}
+
+.form-bg .form-content {
+  text-align: left;
+  padding-top: 30px;
+}
+
+.form-content label {
+  padding-left: 20px;
+  font-weight: 700;
+  color: #323232;
+}
+
+.form-content .form-title {
+  width: 280px;
+  height: 40px;
+  margin-left: 10px;
+  border: 0;
+  border-radius: 15px;
+}
+
+.form-content .form-text {
+  width: 450px;
+  height: 40px;
+  margin-left: 10px;
+  border: 0;
+  border-radius: 15px;
+}
+
+.form-content button {
+  margin-left: 200px;
+  border-radius: 15px;
+  border: none;
+  background-color: #fff0f0;
+  color: #323232;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.form-content button:hover {
+  background-color: #ff6e6e;
+  color: white;
+}
