@@ -49,6 +49,9 @@ const DoneTodoList = (props) => {
   );
 };
 
+//id 값 할당
+//id 값이 중복되는 거 방지
+let id = 2;
 const AddList = () => {
   //기본 데이터
   const [todoLists, setTodoLists] = useState([
@@ -70,19 +73,21 @@ const AddList = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  //추ㄱ 클릭시 제목, 내용 담은 박스리스트 추가하기
-  const addListEvent = () => {
+  //추가하기 클릭시 제목, 내용 담은 박스리스트 추가하기
+  const addListEvent = (event) => {
     const newTodoList = {
-      id: todoLists.length + 1,
+      id: id,
       title,
       body,
       isDone: false,
     };
-    setTodoLists([...todoLists, newTodoList]);
+    id++;
 
     //input안 빈 값으로 만들어주기
     setTitle("");
     setBody("");
+
+    setTodoLists([...todoLists, newTodoList]); //불변성 유지하기 위해 state로 받기위해
   };
 
   // ----완료, 삭제, 취소 버튼 구현------
