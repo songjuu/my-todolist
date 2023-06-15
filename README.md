@@ -1,3 +1,7 @@
-# My TodoList 만들기 과제
+# My TodoList
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+react 입문 개인 과제 + todolist 만들기
+
+### 👀 배포
+
+my-todolist-alpha.vercel.app
