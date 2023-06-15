@@ -3,14 +3,22 @@
   background-color: #fac1c1;
   border-radius: 10px;
   align-items: center;
-  display: flex;
   padding: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.form-content {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .form-content label {
   font-weight: 700;
   color: #323232;
   margin-left: 10px;
+  word-break: keep-all;
 }
 
 .form-content .form-title {
@@ -41,6 +49,7 @@
   padding: 10px 20px;
   cursor: pointer;
   margin-left: 80px;
+  word-break: keep-all;
 }
 
 .add-list button:hover {
@@ -67,11 +76,32 @@
   margin-top: 24px;
 }
 
-.todolist-box-button {
+.todolist-box-button-delete {
   border-radius: 8px;
   cursor: pointer;
   height: 40px;
   width: 40%;
   background-color: #fff;
-  border: 2px solid #727a76;
+  border: 2px solid #cd1039;
+  font-weight: 600;
+}
+
+.todolist-box-button-done {
+  border-radius: 8px;
+  cursor: pointer;
+  height: 40px;
+  width: 40%;
+  background-color: #fff;
+  border: 2px solid #e6749d;
+  font-weight: 600;
+}
+
+.todolist-box-button-back {
+  border-radius: 8px;
+  cursor: pointer;
+  height: 40px;
+  width: 40%;
+  background-color: #fff;
+  border: 2px solid #ff32b1;
+  font-weight: 600;
 }

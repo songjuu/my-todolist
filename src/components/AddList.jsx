@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/addList.css";
 
+//working 부분 todolist
 const TodoList = (props) => {
   return (
     <div className="list-container">
@@ -8,10 +9,40 @@ const TodoList = (props) => {
       <div>{props.todo.body}</div>
       <div className="button-set">
         <button
-          className="todolist-box-button"
+          className="todolist-box-button-delete"
           onClick={() => props.handleDelete(props.todo.id)}
         >
-          삭제하기
+          삭제
+        </button>
+        <button
+          className="todolist-box-button-done"
+          onClick={() => props.handleDone(props.todo.id)}
+        >
+          완료
+        </button>
+      </div>
+    </div>
+  );
+};
+
+////done 부분 todolist
+const DoneTodoList = (props) => {
+  return (
+    <div className="list-container">
+      <h3>{props.todo.title}</h3>
+      <div>{props.todo.body}</div>
+      <div className="button-set">
+        <button
+          className="todolist-box-button-delete"
+          onClick={() => props.handleDelete(props.todo.id)}
+        >
+          삭제
+        </button>
+        <button
+          className="todolist-box-button-back"
+          onClick={() => props.handleBack(props.todo.id)}
+        >
+          취소
         </button>
       </div>
     </div>
@@ -21,36 +52,63 @@ const TodoList = (props) => {
 const AddList = () => {
   //기본 데이터
   const [todoLists, setTodoLists] = useState([
-    { id: 0, title: "공부", body: "js 공부하기", isDone: false },
-    { id: 1, title: "운동", body: "10시에 운동가기", isDone: false },
+    {
+      id: 0,
+      title: "공부",
+      body: "JS, react 강의 듣고 공부하기",
+      isDone: true,
+    },
+    {
+      id: 1,
+      title: "운동",
+      body: "10시에 헬스장 가기",
+      isDone: false,
+    },
   ]);
 
   //유저 입력값 담을 곳 선언
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  // console.log("title", title);
-  // console.log("body", body);
-
-  //버튼 클릭시 제목, 내용 담은 박스리스트 추가하기
+  //추ㄱ 클릭시 제목, 내용 담은 박스리스트 추가하기
   const addListEvent = () => {
     const newTodoList = {
       id: todoLists.length + 1,
       title,
       body,
+      isDone: false,
     };
     setTodoLists([...todoLists, newTodoList]);
 
     //input안 빈 값으로 만들어주기
     setTitle("");
     setBody("");
-    // console.log(newTodoList);
   };
 
-  //삭제 하기 기능 구현
+  // ----완료, 삭제, 취소 버튼 구현------
+
+  //삭제하기 기능 구현
   const deleteButton = (id) => {
     const newTodoListDelete = todoLists.filter((todo) => todo.id !== id);
     setTodoLists(newTodoListDelete);
+  };
+
+  //완료하기 기능 구현
+  const doneButton = (id) => {
+    const newTodoListDone = todoLists.map((todo) =>
+      todo.id === id ? { ...todo, isDone: true } : todo
+    );
+
+    setTodoLists(newTodoListDone);
+  };
+
+  //취소하기 기능 구현
+  const backButton = (id) => {
+    const newTodoListDone = todoLists.map((todo) =>
+      todo.id === id ? { ...todo, isDone: false } : todo
+    );
+
+    setTodoLists(newTodoListDone);
   };
 
   return (
@@ -81,12 +139,37 @@ const AddList = () => {
         <h2>Working🔥</h2>
         <div className="list-wrapper">
           {todoLists.map((todo) => {
-            return (
-              <TodoList todo={todo} key={todo.id} handleDelete={deleteButton} />
-            );
+            if (todo.isDone === false) {
+              return (
+                <TodoList
+                  todo={todo}
+                  key={todo.id}
+                  handleDelete={deleteButton}
+                  handleDone={doneButton}
+                />
+              );
+            } else {
+              return null;
+            }
           })}
         </div>
         <h2>Done🎉</h2>
+        <div className="list-wrapper">
+          {todoLists.map((todo) => {
+            if (todo.isDone === true) {
+              return (
+                <DoneTodoList
+                  todo={todo}
+                  key={todo.id}
+                  handleDelete={deleteButton}
+                  handleBack={backButton}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
       </main>
     </div>
   );
