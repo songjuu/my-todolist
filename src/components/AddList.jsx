@@ -1,53 +1,31 @@
 import React, { useState } from "react";
 import "../css/addList.css";
+import WorkingTodoList from "./WorkingTodoList";
+import DoneTodoList from "./DoneTodoList";
 
-//working 부분 todolist
-const TodoList = (props) => {
-  return (
-    <div className="list-container">
-      <h3>{props.todo.title}</h3>
-      <div>{props.todo.body}</div>
-      <div className="button-set">
-        <button
-          className="todolist-box-button-delete"
-          onClick={() => props.handleDelete(props.todo.id)}
-        >
-          삭제
-        </button>
-        <button
-          className="todolist-box-button-done"
-          onClick={() => props.handleDone(props.todo.id)}
-        >
-          완료
-        </button>
-      </div>
-    </div>
-  );
-};
-
-////done 부분 todolist
-const DoneTodoList = (props) => {
-  return (
-    <div className="list-container">
-      <h3>{props.todo.title}</h3>
-      <div>{props.todo.body}</div>
-      <div className="button-set">
-        <button
-          className="todolist-box-button-delete"
-          onClick={() => props.handleDelete(props.todo.id)}
-        >
-          삭제
-        </button>
-        <button
-          className="todolist-box-button-back"
-          onClick={() => props.handleBack(props.todo.id)}
-        >
-          취소
-        </button>
-      </div>
-    </div>
-  );
-};
+// ////done 부분 todolist
+// const DoneTodoList = (props) => {
+//   return (
+//     <div className="list-container">
+//       <h3>{props.todo.title}</h3>
+//       <div>{props.todo.body}</div>
+//       <div className="button-set">
+//         <button
+//           className="todolist-box-button-delete"
+//           onClick={() => props.handleDelete(props.todo.id)}
+//         >
+//           삭제
+//         </button>
+//         <button
+//           className="todolist-box-button-back"
+//           onClick={() => props.handleBack(props.todo.id)}
+//         >
+//           취소
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
 
 //id 값 할당
 //id 값이 중복되는 거 방지
@@ -146,7 +124,7 @@ const AddList = () => {
           {todoLists.map((todo) => {
             if (todo.isDone === false) {
               return (
-                <TodoList
+                <WorkingTodoList
                   todo={todo}
                   key={todo.id}
                   handleDelete={deleteButton}
