@@ -19,8 +19,10 @@
 
 📁 분리한 컴포넌트
 ------------
-+ 
-+ 
++ TodoList.jsx
++ AddList.jsx
++ WorkingTodoList.jsx
++ DoneTodoList.jsx 
 
 👀 배포 
 ------------
